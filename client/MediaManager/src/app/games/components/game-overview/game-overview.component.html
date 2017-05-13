@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Platform</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let game of games$ | async">
+      <td>{{ game.id }}</td>
+      <td>{{ game.title }}</td>
+      <td>{{ game.platform }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button (click)="addNewGame()">Add New Game</button>
