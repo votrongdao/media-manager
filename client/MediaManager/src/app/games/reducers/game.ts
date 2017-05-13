@@ -33,6 +33,17 @@ export function reducer(state = initialState, action: gameActions.Actions): Stat
                 selectedGameId: state.selectedGameId
             };
         }
+        case gameActions.ActionTypes.ADD_GAME_SUCCESS: {
+            let newGame = action['payload'];
+
+            return {
+                ids: [...state.ids, newGame.id],
+                entities: Object.assign({}, state.entities, {
+                    [newGame.id]: newGame
+                }),
+                selectedGameId: state.selectedGameId
+            };
+        }
         default: {
             return state;
         }

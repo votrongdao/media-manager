@@ -30,5 +30,13 @@ export class GameEffects {
                 .map((games: Game[]) => new gameActions.LoadGamesSuccessAction(games))
                 .catch(error => of(new gameActions.LoadGamesFailAction(error)))
         );
+
+    @Effect()
+    addGame$: Observable<Action> = this.actions$
+        .ofType(gameActions.ActionTypes.ADD_GAME)
+        .map((action: gameActions.AddGameAction) => action.payload)
+        .switchMap((game) => this.gameService.addGame(game))
+        .map((game) => new gameActions.AddGameSuccessAction(game))
+        .catch((e) => of(new gameActions.AddGameFailAction(e)));
 }
 

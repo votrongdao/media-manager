@@ -16,6 +16,7 @@ export class GameOverviewComponent implements OnInit {
 
   constructor(private router: Router, private store: Store<fromRoot.State>) {
     this.games$ = this.store.select(fromRoot.getGameCollection);
+    this.store.dispatch(new gameActions.LoadGamesAction());
   }
 
   addNewGame() {
@@ -23,7 +24,7 @@ export class GameOverviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.dispatch(new gameActions.LoadGamesAction());
+    
   }
 
 }

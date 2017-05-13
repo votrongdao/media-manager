@@ -1,3 +1,10 @@
-<p>
-  game-edit works!
-</p>
+<form [formGroup]="form">
+  <div formGroupName="game">
+    <input formControlName="title" placeholder="Title...">
+    <input formControlName="platform" placeholder="Platform...">
+  </div>
+  <button type="button" (click)="addGame()">Add Game</button>
+</form>
+
+<p>value: {{ form.value | json }}</p>
+<p>Validation status: {{ form.status }}</p>
