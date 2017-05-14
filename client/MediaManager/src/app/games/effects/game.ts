@@ -35,8 +35,10 @@ export class GameEffects {
     addGame$: Observable<Action> = this.actions$
         .ofType(gameActions.ActionTypes.ADD_GAME)
         .map((action: gameActions.AddGameAction) => action.payload)
-        .switchMap((game) => this.gameService.addGame(game))
-        .map((game) => new gameActions.AddGameSuccessAction(game))
-        .catch((e) => of(new gameActions.AddGameFailAction(e)));
+        .mergeMap((game) => this.gameService.addGame(game)
+            .map((response) => Object.assign({}, game, { id: response['Key']}))
+            .map((gameWithId => new gameActions.AddGameSuccessAction(gameWithId)))
+            .catch((e) => of(new gameActions.AddGameFailAction(e))));
+
 }
 

@@ -4,28 +4,33 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Game } from '../models/game';
 import 'rxjs';
+import {Headers} from '@angular/http';
 
 @Injectable()
 export class GameService {
     private API_PATH: string = '';
-    static games = [{ id: '1', title: 'Persona 5', platform: 'Playstation 4'}];
 
     constructor(private http: Http) {
 
     }
 
     loadGames() : Observable<any> {
-        return Observable.from(GameService.games);
+        return this.http.get("http://localhost:8080/databases/MediaManager/indexes/dynamic/Games")
+        .map(res => res.json())
+        .flatMap(results => results['Results'])
+        .map(game => { console.log("game", game); return Object.assign({}, {
+            id: game["@metadata"]["@id"],
+            title: game['title'],
+            platform: game['platform']
+        })});
     }
 
     addGame(game: Game) : Observable<any> {
         let newGame = Object.assign({}, game);
-        let maxId = GameService.games[GameService.games.length - 1].id;
-        newGame.id = String((Number(maxId) + 1));
-        GameService.games.push(newGame);
+        console.log("postedValue", newGame);
 
-        let addedGame = [newGame];
-        return Observable.from(addedGame);
+        let headers = new Headers({'Raven-Entity-Name': 'Games'});
+        return this.http.post('http://localhost:8080/databases/MediaManager/Docs', newGame, {headers: headers}).map(res => res.json());
     }
 
 }
