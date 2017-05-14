@@ -3,8 +3,7 @@
     <input formControlName="title" placeholder="Title...">
     <input formControlName="platform" placeholder="Platform...">
   </div>
-  <button type="button" (click)="addGame()">Add Game</button>
+  <button (click)="addGame()" class="btn waves-effect waves-light red right" type="button" name="action">Add Game
+    <i class="material-icons right">send</i>
+  </button>
 </form>
-
-<p>value: {{ form.value | json }}</p>
-<p>Validation status: {{ form.status }}</p>

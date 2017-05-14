@@ -19,6 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "materialize-css/dist/css/materialize.css",
         "styles.css"
       ],
       "scripts": [],

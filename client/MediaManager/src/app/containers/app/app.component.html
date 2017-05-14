@@ -1,1 +1,15 @@
-<router-outlet></router-outlet>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">MediaManager</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a [routerLink]="['games']">Games</a></li>
+        <li><a [routerLink]="['games']">Movies</a></li>
+        <li><a [routerLink]="['games']">Books</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+      <div class="col s12">
+          <router-outlet></router-outlet>
+      </div>      
+  </div>
