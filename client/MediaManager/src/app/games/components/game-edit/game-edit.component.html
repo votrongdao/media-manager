@@ -1,9 +1,21 @@
-<form materialize [formGroup]="form">
-  <div formGroupName="game">
-    <input formControlName="title" placeholder="Title...">
-    <input formControlName="platform" placeholder="Platform...">
-    <div class="input-field col s12">
-    <select materialize="material_select" multiple>
+<div class="row">
+  <form materialize [formGroup]="form">
+
+    <div formGroupName="game">
+
+      <div class="input-field col s12">
+        <input id="Title" type="text">
+        <label for="Title" class="">Title</label>
+      </div>
+      <div class="input-field col s12">
+        <input id="Platform" type="text">
+        <label for="Platform" class="">Platform</label>
+      </div>
+
+
+
+      <div class="input-field col s12">
+        <select materialize="material_select" multiple>
       <option value="" selected disabled>Select Platform</option>
       <option value="1">Playstation 4</option>
       <option value="2">Nintendo Switch</option>
@@ -11,10 +23,25 @@
       <option value="4">Playstation Vita</option>
       <option value="5">Nintendo 3DS</option>
     </select>
+      </div>
+
+      <div class="input-field col s12">
+        <select materialize="material_select">
+      <option value="" selected disabled>Select Status</option>
+      <option value="1">Backlog</option>
+      <option value="2">In Progress</option>
+      <option value="3">Finished</option>
+    </select>
+      </div>
+
+
+      <div class="input-field col s12">
+        <input id="releaseDate" placeholder="Release Date" materialize="pickadate" type="text" />
+      </div>
+
     </div>
-    
-  </div>
-  <button (click)="addGame()" class="btn waves-effect waves-light red right" type="button" name="action">Add Game
+    <button (click)="addGame()" class="btn waves-effect waves-light red right" type="button" name="action">Add Game
     <i class="material-icons right">send</i>
   </button>
-</form>
+  </form>
+</div>
