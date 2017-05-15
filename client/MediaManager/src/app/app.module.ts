@@ -16,6 +16,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from "@ngrx/effects";
 import { GameEffects } from './games/effects/game';
 import { GameService } from "app/games/services/game";
+import { MaterializeModule } from 'angular2-materialize';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { GameService } from "app/games/services/game";
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    MaterializeModule,
     RouterModule.forRoot(routes),
     StoreModule.provideStore(reducer),
     RouterStoreModule.connectRouter(),
