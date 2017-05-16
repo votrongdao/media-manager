@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 
 import { AppComponent } from './containers/app/app.component';
 import { GameOverviewComponent } from './games/components/game-overview/game-overview.component';
@@ -17,6 +17,13 @@ import { EffectsModule } from "@ngrx/effects";
 import { GameEffects } from './games/effects/game';
 import { GameService } from "app/games/services/game";
 import { MaterializeModule } from 'angular2-materialize';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: Http) {
+    return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -31,6 +38,13 @@ import { MaterializeModule } from 'angular2-materialize';
     ReactiveFormsModule,
     HttpModule,
     MaterializeModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [Http]
+        }
+    }),
     RouterModule.forRoot(routes),
     StoreModule.provideStore(reducer),
     RouterStoreModule.connectRouter(),
