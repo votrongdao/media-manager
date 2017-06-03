@@ -36,7 +36,7 @@ export class GameEffects {
         .ofType(gameActions.ActionTypes.ADD_GAME)
         .map((action: gameActions.AddGameAction) => action.payload)
         .mergeMap((game) => this.gameService.addGame(game)
-            .map((response) => Object.assign({}, game, { id: response['Key']}))
+            .map((response) => Object.assign({}, game, { Id: response['Id']}))
             .map((gameWithId => new gameActions.AddGameSuccessAction(gameWithId)))
             .catch((e) => of(new gameActions.AddGameFailAction(e))));
 

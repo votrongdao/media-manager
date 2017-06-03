@@ -1,0 +1,23 @@
+<div class="row">
+  <form materialize [formGroup]="form">
+
+    <div formGroupName="book">
+
+      <div class="input-field col s12">
+        <input id="Title" type="text" formControlName="Title">
+        <label for="Title" class="">Title</label>
+      </div>
+      <div class="input-field col s12">
+        <input id="Author" type="text" formControlName="Author">
+        <label for="Author" class="">Author</label>
+      </div>
+      <div class="input-field col s12">
+        <input type="file" name="image" (change)="imageUploadChanged($event)" />
+      </div>
+
+    </div>
+    <button (click)="addBook()" class="btn waves-effect waves-light red right" type="button" name="action">Add Book
+    <i class="material-icons right">send</i>
+  </button>
+  </form>
+</div>

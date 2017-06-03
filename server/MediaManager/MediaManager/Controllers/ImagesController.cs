@@ -35,7 +35,7 @@ namespace MediaManager.Controllers
 
         // POST: api/Images
         [HttpPost]
-        public async Task<JsonResult> Post()
+        public async Task<JsonResult> Post([FromQuery] string directory)
         {
 
             var file = HttpContext.Request.Form.Files.Count > 0 ?
@@ -43,8 +43,8 @@ namespace MediaManager.Controllers
 
             if (file != null && file.ContentDisposition.Length > 0)
             {
-                await _blobUtility.UploadBlob("fullimages", file, "games", false);
-                var url = await _blobUtility.UploadBlob("scaledimages", file, "games", true);
+                await _blobUtility.UploadBlob("fullimages", file, directory, false);
+                var url = await _blobUtility.UploadBlob("scaledimages", file, directory, true);
                 
                 return Json(new { ImageUrl = url });
             }

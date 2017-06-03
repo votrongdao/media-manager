@@ -7,3 +7,12 @@ C:\Projects\Hobby\StaleDataNotifyer\StaleDataMessenger\stale-data-messenger\Medi
 C:\Projects\Hobby\StaleDataNotifyer\StaleDataMessenger\stale-data-messenger\MediaManager\MediaManager\obj\Debug\netcoreapp1.1\MediaManager.AssemblyInfo.cs
 C:\Projects\Hobby\StaleDataNotifyer\StaleDataMessenger\stale-data-messenger\MediaManager\MediaManager\obj\Debug\netcoreapp1.1\MediaManager.dll
 C:\Projects\Hobby\StaleDataNotifyer\StaleDataMessenger\stale-data-messenger\MediaManager\MediaManager\obj\Debug\netcoreapp1.1\MediaManager.pdb
+C:\Angular\media-manager\server\MediaManager\MediaManager\bin\Debug\netcoreapp1.1\MediaManager.deps.json
+C:\Angular\media-manager\server\MediaManager\MediaManager\bin\Debug\netcoreapp1.1\MediaManager.runtimeconfig.json
+C:\Angular\media-manager\server\MediaManager\MediaManager\bin\Debug\netcoreapp1.1\MediaManager.runtimeconfig.dev.json
+C:\Angular\media-manager\server\MediaManager\MediaManager\bin\Debug\netcoreapp1.1\MediaManager.dll
+C:\Angular\media-manager\server\MediaManager\MediaManager\bin\Debug\netcoreapp1.1\MediaManager.pdb
+C:\Angular\media-manager\server\MediaManager\MediaManager\obj\Debug\netcoreapp1.1\MediaManager.csprojResolveAssemblyReference.cache
+C:\Angular\media-manager\server\MediaManager\MediaManager\obj\Debug\netcoreapp1.1\MediaManager.AssemblyInfo.cs
+C:\Angular\media-manager\server\MediaManager\MediaManager\obj\Debug\netcoreapp1.1\MediaManager.dll
+C:\Angular\media-manager\server\MediaManager\MediaManager\obj\Debug\netcoreapp1.1\MediaManager.pdb

@@ -15,10 +15,18 @@ import { RouterStoreModule } from "@ngrx/router-store";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from "@ngrx/effects";
 import { GameEffects } from './games/effects/game';
+import { MovieEffects } from './movies/effects/movie';
+import { BookEffects } from './books/effects/book';
 import { GameService } from "app/games/services/game";
 import { MaterializeModule } from 'angular2-materialize';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { BookEditComponent } from './books/components/book-edit/book-edit.component';
+import { BookOverviewComponent } from './books/components/book-overview/book-overview.component';
+import { MovieEditComponent } from './movies/components/movie-edit/movie-edit.component';
+import { MovieOverviewComponent } from './movies/components/movie-overview/movie-overview.component';
+import { BookService } from "./books/services/book";
+import { MovieService } from "./movies/services/movie";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
@@ -30,7 +38,11 @@ export function HttpLoaderFactory(http: Http) {
     AppComponent,
     GameOverviewComponent,
     GameEditComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    BookEditComponent,
+    BookOverviewComponent,
+    MovieEditComponent,
+    MovieOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -49,10 +61,12 @@ export function HttpLoaderFactory(http: Http) {
     StoreModule.provideStore(reducer),
     RouterStoreModule.connectRouter(),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
-    EffectsModule.run(GameEffects)
+    EffectsModule.run(GameEffects),
+    EffectsModule.run(MovieEffects),
+    EffectsModule.run(BookEffects)
   ],
   providers: [
-    GameService
+    GameService, BookService, MovieService
   ],
   bootstrap: [AppComponent]
 })

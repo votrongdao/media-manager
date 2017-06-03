@@ -7,24 +7,23 @@ using Microsoft.AspNetCore.Mvc;
 using Raven.Client;
 using Raven.Client.Document;
 using Microsoft.Extensions.Options;
-using Microsoft.AspNetCore.Cors;
 
 namespace MediaManager.Controllers
 {
     [Serializable]
-    public class Game
+    public class Book
     {
         public string Id { get; set; }
         public string Title { get; set; }
-        public string Platform { get; set; }
+        public string Author { get; set; }
         public string ImageUrl { get; set; }
     }
 
     [Produces("application/json")]
-    [Route("api/Games")]
-    public class GamesController : Controller
+    [Route("api/Books")]
+    public class BooksController : Controller
     {
-        public GamesController(IOptions<StorageAccountOptions> optionsAccessor)
+        public BooksController(IOptions<StorageAccountOptions> optionsAccessor)
         {
 
         }
@@ -32,7 +31,7 @@ namespace MediaManager.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            List<Game> games = new List<Game>();
+            List<Book> books = new List<Book>();
 
             using (IDocumentStore store = new DocumentStore
             {
@@ -44,15 +43,15 @@ namespace MediaManager.Controllers
 
                 using (IDocumentSession session = store.OpenSession()) // opens a session that will work in context of 'DefaultDatabase'
                 {
-                    games = session.Query<Game>().ToList();
+                    books = session.Query<Book>().ToList();
                 }
             }
 
-            return Json(games);
+            return Json(books);
         }
 
         [HttpPost]
-        public JsonResult Post([FromBody] Game game)
+        public JsonResult Post([FromBody] Book book)
         {
 
             using (IDocumentStore store = new DocumentStore
@@ -65,15 +64,15 @@ namespace MediaManager.Controllers
 
                 using (IDocumentSession session = store.OpenSession()) // opens a session that will work in context of 'DefaultDatabase'
                 {
-                    session.Store(game);
+                    session.Store(book);
                     session.SaveChanges();
 
-                    game.Id = session.Advanced.GetDocumentId(game);
+                    book.Id = session.Advanced.GetDocumentId(book);
                 }
             }
 
 
-            return Json(game);
+            return Json(book);
 
         }
     }

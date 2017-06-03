@@ -2,34 +2,34 @@ import 'rxjs/add/operator/map';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { Game } from '../models/game';
+import { Book } from '../models/book';
 import 'rxjs';
 import { Headers, RequestOptions } from '@angular/http';
 
 @Injectable()
-export class GameService {
+export class BookService {
     private API_PATH: string = '';
 
     constructor(private http: Http) {
 
     }
 
-    loadGames() : Observable<any> {
-        return this.http.get("http://localhost:8080/databases/MediaManager/indexes/dynamic/Games")
+    loadBooks() : Observable<any> {
+        return this.http.get("http://localhost:8080/databases/MediaManager/indexes/dynamic/Books")
         .map(res => res.json())
         .flatMap(results => results['Results'])
-        .map(game => { return Object.assign({}, {
-            Id: game["@metadata"]["@id"],
-            Title: game['Title'],
-            Platform: game['Platform'],
-            ImageUrl: game['ImageUrl']
+        .map(book => { return Object.assign({}, {
+            Id: book["@metadata"]["@id"],
+            Title: book['Title'],
+            Author: book['Author'],
+            ImageUrl: book['ImageUrl']
         })});
     }
 
-    addGame(game: Game) : Observable<any> {
-        let newGame = Object.assign({}, game);
+    addBook(book: Book) : Observable<any> {
+        let newBook = Object.assign({}, book);
 
-        return this.http.post('http://localhost:4201/api/games', newGame).map(res => res.json());
+        return this.http.post('http://localhost:4201/api/books', newBook).map(res => res.json());
     }
 
     postImage(file) {
@@ -40,7 +40,7 @@ export class GameService {
 
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post('http://localhost:4201/api/images?directory=games', formData, options).map(res => res.json());
+        return this.http.post('http://localhost:4201/api/images?directory=books', formData, options).map(res => res.json());
   }
 
 }

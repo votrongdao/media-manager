@@ -18,7 +18,6 @@ export function reducer(state = initialState, action: gameActions.Actions): Stat
     switch(action.type) {
         case gameActions.ActionTypes.LOAD_GAMES_SUCCESS: {
             const games = action['payload'];
-            console.log(games);
             const newGames = games.filter(game => !state.entities[game.Id]);
 
             const newGameIds = newGames.map(game => game.Id);
@@ -35,7 +34,6 @@ export function reducer(state = initialState, action: gameActions.Actions): Stat
             };
         }
         case gameActions.ActionTypes.ADD_GAME_SUCCESS: {
-                console.log("SUCCES", action['payload']);
             let newGame = action['payload'];
 
             return {

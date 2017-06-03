@@ -11842,10 +11842,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\Hobby\\StaleDataNotifyer\\StaleDataMessenger\\stale-data-messenger\\MediaManager\\MediaManager\\MediaManager.csproj",
+      "projectUniqueName": "C:\\Angular\\media-manager\\server\\MediaManager\\MediaManager\\MediaManager.csproj",
       "projectName": "MediaManager",
-      "projectPath": "C:\\Projects\\Hobby\\StaleDataNotifyer\\StaleDataMessenger\\stale-data-messenger\\MediaManager\\MediaManager\\MediaManager.csproj",
-      "outputPath": "C:\\Projects\\Hobby\\StaleDataNotifyer\\StaleDataMessenger\\stale-data-messenger\\MediaManager\\MediaManager\\obj\\",
+      "projectPath": "C:\\Angular\\media-manager\\server\\MediaManager\\MediaManager\\MediaManager.csproj",
+      "outputPath": "C:\\Angular\\media-manager\\server\\MediaManager\\MediaManager\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
