@@ -2,8 +2,13 @@
 
 nav {
     margin-bottom: 50px;
+    padding-left: 15px;
 }
 
 .btn-add {
-    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    text-shadow: 1px 1px #444;
 }

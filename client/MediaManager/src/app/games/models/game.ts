@@ -1,5 +1,6 @@
 export interface Game {
-    id: string;
-    title: string;
-    platform: string;
+    Id: string;
+    Title: string;
+    Platform: string;
+    ImageUrl: string;
 }

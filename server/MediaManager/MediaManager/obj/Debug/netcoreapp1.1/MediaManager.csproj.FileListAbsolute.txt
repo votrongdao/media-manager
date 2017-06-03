@@ -1,0 +1,9 @@
+C:\Projects\Hobby\StaleDataNotifyer\StaleDataMessenger\stale-data-messenger\MediaManager\MediaManager\bin\Debug\netcoreapp1.1\MediaManager.deps.json
+C:\Projects\Hobby\StaleDataNotifyer\StaleDataMessenger\stale-data-messenger\MediaManager\MediaManager\bin\Debug\netcoreapp1.1\MediaManager.runtimeconfig.json
+C:\Projects\Hobby\StaleDataNotifyer\StaleDataMessenger\stale-data-messenger\MediaManager\MediaManager\bin\Debug\netcoreapp1.1\MediaManager.runtimeconfig.dev.json
+C:\Projects\Hobby\StaleDataNotifyer\StaleDataMessenger\stale-data-messenger\MediaManager\MediaManager\bin\Debug\netcoreapp1.1\MediaManager.dll
+C:\Projects\Hobby\StaleDataNotifyer\StaleDataMessenger\stale-data-messenger\MediaManager\MediaManager\bin\Debug\netcoreapp1.1\MediaManager.pdb
+C:\Projects\Hobby\StaleDataNotifyer\StaleDataMessenger\stale-data-messenger\MediaManager\MediaManager\obj\Debug\netcoreapp1.1\MediaManager.csprojResolveAssemblyReference.cache
+C:\Projects\Hobby\StaleDataNotifyer\StaleDataMessenger\stale-data-messenger\MediaManager\MediaManager\obj\Debug\netcoreapp1.1\MediaManager.AssemblyInfo.cs
+C:\Projects\Hobby\StaleDataNotifyer\StaleDataMessenger\stale-data-messenger\MediaManager\MediaManager\obj\Debug\netcoreapp1.1\MediaManager.dll
+C:\Projects\Hobby\StaleDataNotifyer\StaleDataMessenger\stale-data-messenger\MediaManager\MediaManager\obj\Debug\netcoreapp1.1\MediaManager.pdb

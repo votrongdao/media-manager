@@ -4,7 +4,7 @@ import * as gameActions from '../actions/game';
 
 export interface State {
     ids: string[],
-    entities: { [id: string]: Game },
+    entities: { [Id: string]: Game },
     selectedGameId: string | null
 };
 
@@ -19,12 +19,12 @@ export function reducer(state = initialState, action: gameActions.Actions): Stat
         case gameActions.ActionTypes.LOAD_GAMES_SUCCESS: {
             const games = action['payload'];
             console.log(games);
-            const newGames = games.filter(game => !state.entities[game.id]);
+            const newGames = games.filter(game => !state.entities[game.Id]);
 
-            const newGameIds = newGames.map(game => game.id);
-            const newGameEntities = newGames.reduce((entities: { [id: string]: Game }, game: Game) => {
+            const newGameIds = newGames.map(game => game.Id);
+            const newGameEntities = newGames.reduce((entities: { [Id: string]: Game }, game: Game) => {
                 return Object.assign(entities, {
-                    [game.id]: game
+                    [game.Id]: game
                 })
             }, {});
 
@@ -39,9 +39,9 @@ export function reducer(state = initialState, action: gameActions.Actions): Stat
             let newGame = action['payload'];
 
             return {
-                ids: [...state.ids, newGame.id],
+                ids: [...state.ids, newGame.Id],
                 entities: Object.assign({}, state.entities, {
-                    [newGame.id]: newGame
+                    [newGame.Id]: newGame
                 }),
                 selectedGameId: state.selectedGameId
             };
