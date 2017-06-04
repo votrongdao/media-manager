@@ -15,21 +15,14 @@ export class BookService {
     }
 
     loadBooks() : Observable<any> {
-        return this.http.get("http://localhost:8080/databases/MediaManager/indexes/dynamic/Books")
-        .map(res => res.json())
-        .flatMap(results => results['Results'])
-        .map(book => { return Object.assign({}, {
-            Id: book["@metadata"]["@id"],
-            Title: book['Title'],
-            Author: book['Author'],
-            ImageUrl: book['ImageUrl']
-        })});
+        return this.http.get("http://145.131.17.225/api/books")
+        .map(res => res.json());
     }
 
     addBook(book: Book) : Observable<any> {
         let newBook = Object.assign({}, book);
 
-        return this.http.post('http://localhost:4201/api/books', newBook).map(res => res.json());
+        return this.http.post('http://145.131.17.225/api/books', newBook).map(res => res.json());
     }
 
     postImage(file) {
@@ -40,7 +33,7 @@ export class BookService {
 
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post('http://localhost:4201/api/images?directory=books', formData, options).map(res => res.json());
+        return this.http.post('http://145.131.17.225/api/images?directory=books', formData, options).map(res => res.json());
   }
 
 }

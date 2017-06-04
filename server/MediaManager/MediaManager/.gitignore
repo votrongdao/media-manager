@@ -17,6 +17,10 @@
 .settings/
 *.sublime-workspace
 appsettings.json
+Properties
+*.pubxml
+*.pubxml.user
+
 
 # IDE - VSCode
 .vscode/*

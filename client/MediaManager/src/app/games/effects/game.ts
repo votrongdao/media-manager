@@ -26,7 +26,6 @@ export class GameEffects {
         .ofType(gameActions.ActionTypes.LOAD_GAMES)
         .switchMap(() =>
             this.gameService.loadGames()
-                .toArray()
                 .map((games: Game[]) => new gameActions.LoadGamesSuccessAction(games))
                 .catch(error => of(new gameActions.LoadGamesFailAction(error)))
         );

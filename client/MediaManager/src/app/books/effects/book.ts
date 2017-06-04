@@ -26,7 +26,6 @@ export class BookEffects {
         .ofType(bookActions.ActionTypes.LOAD_BOOKS)
         .switchMap(() =>
             this.bookService.loadBooks()
-                .toArray()
                 .map((books: Book[]) => new bookActions.LoadBooksSuccessAction(books))
                 .catch(error => of(new bookActions.LoadBooksFailAction(error)))
         );

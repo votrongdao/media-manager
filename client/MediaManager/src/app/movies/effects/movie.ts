@@ -26,7 +26,6 @@ export class MovieEffects {
         .ofType(movieActions.ActionTypes.LOAD_MOVIES)
         .switchMap(() =>
             this.movieService.loadMovies()
-                .toArray()
                 .map((movies: Movie[]) => new movieActions.LoadMoviesSuccessAction(movies))
                 .catch(error => of(new movieActions.LoadMoviesFailAction(error)))
         );

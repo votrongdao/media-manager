@@ -15,21 +15,14 @@ export class GameService {
     }
 
     loadGames() : Observable<any> {
-        return this.http.get("http://localhost:8080/databases/MediaManager/indexes/dynamic/Games")
-        .map(res => res.json())
-        .flatMap(results => results['Results'])
-        .map(game => { return Object.assign({}, {
-            Id: game["@metadata"]["@id"],
-            Title: game['Title'],
-            Platform: game['Platform'],
-            ImageUrl: game['ImageUrl']
-        })});
+        return this.http.get("http://145.131.17.225/api/games")
+        .map(res => res.json());
     }
 
     addGame(game: Game) : Observable<any> {
         let newGame = Object.assign({}, game);
 
-        return this.http.post('http://localhost:4201/api/games', newGame).map(res => res.json());
+        return this.http.post('http://145.131.17.225/api/games', newGame).map(res => res.json());
     }
 
     postImage(file) {
@@ -40,7 +33,7 @@ export class GameService {
 
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post('http://localhost:4201/api/images?directory=games', formData, options).map(res => res.json());
+        return this.http.post('http://145.131.17.225/api/images?directory=games', formData, options).map(res => res.json());
   }
 
 }

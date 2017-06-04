@@ -15,21 +15,14 @@ export class MovieService {
     }
 
     loadMovies() : Observable<any> {
-        return this.http.get("http://localhost:8080/databases/MediaManager/indexes/dynamic/Movies")
-        .map(res => res.json())
-        .flatMap(results => results['Results'])
-        .map(movie => { return Object.assign({}, {
-            Id: movie["@metadata"]["@id"],
-            Title: movie['Title'],
-            Director: movie['Director'],
-            ImageUrl: movie['ImageUrl']
-        })});
+        return this.http.get("http://145.131.17.225/api/movies")
+        .map(res => res.json());
     }
 
     addMovie(movie: Movie) : Observable<any> {
         let newMovie = Object.assign({}, movie);
 
-        return this.http.post('http://localhost:4201/api/movies', newMovie).map(res => res.json());
+        return this.http.post('http://145.131.17.225/api/movies', newMovie).map(res => res.json());
     }
 
     postImage(file) {
@@ -40,7 +33,7 @@ export class MovieService {
 
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post('http://localhost:4201/api/images?directory=movies', formData, options).map(res => res.json());
+        return this.http.post('http://145.131.17.225/api/images?directory=movies', formData, options).map(res => res.json());
   }
 
 }
